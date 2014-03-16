@@ -1,0 +1,22 @@
+{
+	"name": "sowerphp/aulavirtual",
+	"description": "Extensión: aulavirtual",
+	"type": "library",
+	"keywords": ["sowerphp", "extension"],
+	"homepage": "http://sowerphp.org",
+	"license": "GPL",
+	"authors": [
+		{
+			"name": "Equipo de SowerPHP",
+			"homepage": "https://github.com/sowerphp/extension-aulavirtual/graphs/contributors"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/sowerphp/extension-aulavirtual/issues",
+		"forum": "http://stackoverflow.com/tags/sowerphp",
+		"source": "https://github.com/sowerphp/extension-aulavirtual"
+	},
+	"require": {
+		"php": "~5.3"
+	}
+}
