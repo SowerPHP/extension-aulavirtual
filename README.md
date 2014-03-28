@@ -22,7 +22,7 @@ MVC (modelo, vista y controlador)
 
 	- 	Calendario, que debe existir en:
 
-			Model/Data/cursos/nombre_del_curso/calendario.ods
+			DIR_PROJECT/data/cursos/nombre_del_curso/calendario.ods
 
 		Se accede a través de:
 
@@ -30,7 +30,7 @@ MVC (modelo, vista y controlador)
 
 	-	Notas, que debe existir en:
 
-			Model/Data/cursos/nombre_del_curso/notas.ods
+			DIR_PROJECT/data/cursos/nombre_del_curso/notas.ods
 
 		Se accede a través de:
 
