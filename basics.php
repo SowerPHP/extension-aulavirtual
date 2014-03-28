@@ -24,7 +24,7 @@
 /**
  * @file basics.php
  * Funciones de la extensión aulavirtual
- * @version 2014-02-26
+ * @version 2014-03-25
  */
 
 /**
@@ -33,16 +33,16 @@
  * @param linksName Links que se están renderizando
  * @return Retorna un string con los enlaces
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]delaf.cl)
- * @version 2014-02-26
+ * @version 2014-03-25
  */
 function header_useful_links ($linksName) {
-	$useful_links = Configure::read($linksName);
-	if (is_array($useful_links) && count($useful_links)) {
-		$links = array();
-		foreach ($useful_links as $link => &$name) {
-			$links[] = '<a href="'.$link.'">'.$name.'</a>';
-		}
-		return implode(' | ', $links)."\n";
-	}
-	return "\n";
+    $useful_links = SowerPHP\core\Configure::read($linksName);
+    if (is_array($useful_links) && count($useful_links)) {
+        $links = array();
+        foreach ($useful_links as $link => &$name) {
+            $links[] = '<a href="'.$link.'">'.$name.'</a>';
+        }
+        return implode(' | ', $links)."\n";
+    }
+    return "\n";
 }

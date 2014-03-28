@@ -24,11 +24,11 @@
 /**
  * @file routes.php
  * Rutas para la extensión aulavirtual
- * @version 2014-02-26
+ * @version 2014-03-25
  */
 
 // Conectar páginas de cursos
-Router::connect('/cursos/*', array(
-	'controller' => 'cursos',
-	'action' => 'mostrar'
+\SowerPHP\core\Routing_Router::connect('/cursos/*', array(
+    'controller' => 'cursos',
+    'action' => 'mostrar'
 ));

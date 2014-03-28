@@ -1,3 +1,3 @@
 <?php
 echo '<h1>',$titulo,'</h1>';
-echo Spreadsheet::file2html($archivo);
+echo SowerPHP\general\Utility_Spreadsheet::file2html($archivo);

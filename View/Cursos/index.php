@@ -2,8 +2,7 @@
 <ul>
 <?php
 foreach ($cursos as $link => &$info) {
-	$url = $_base.'/cursos'.$link;
-	echo '<li><a href="',$url,'">',$info['name'],'</a></li>';
+    echo '<li><a href="',$_base,'/cursos',$link,'">',$info['name'],'</a></li>';
 }
 ?>
 </ul>
