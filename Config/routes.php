@@ -28,7 +28,7 @@
  */
 
 // Conectar páginas de cursos
-\SowerPHP\core\Routing_Router::connect('/cursos/*', array(
+\sowerphp\core\Routing_Router::connect('/cursos/*', array(
     'controller' => 'cursos',
     'action' => 'mostrar'
 ));

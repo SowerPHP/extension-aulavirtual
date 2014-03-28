@@ -28,13 +28,13 @@
  */
 
 // Tema de la página (diseño)
-\SowerPHP\core\Configure::write('page.layout', 'sinorca');
+\sowerphp\core\Configure::write('page.layout', 'sinorca');
 
 // about me
-\SowerPHP\core\Configure::write('page.aboutme', '');
+\sowerphp\core\Configure::write('page.aboutme', '');
 
 // Enlaces útiles (parte superior)
-\SowerPHP\core\Configure::write('page.header.useful_links', array(
+\sowerphp\core\Configure::write('page.header.useful_links', array(
     'left' => array(
     ),
     'right' => array(
@@ -42,10 +42,10 @@
 ));
 
 // banners
-\SowerPHP\core\Configure::write('banners.right', array(
+\sowerphp\core\Configure::write('banners.right', array(
     // índice es la url del enlace, valor es la url de la imagen (banner)
 ));
-\SowerPHP\core\Configure::write('banners.google.ads', array(
+\sowerphp\core\Configure::write('banners.google.ads', array(
     'client' => '',
     'ads' => array(
         '160x600' => '',
@@ -54,6 +54,6 @@
 ));
 
 // Módulos que usará esta aplicación
-\SowerPHP\core\Module::uses(array(
+\sowerphp\core\Module::uses(array(
     'Exportar',
 ));

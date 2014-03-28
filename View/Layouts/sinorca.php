@@ -91,7 +91,7 @@ foreach($links as $link => &$name) {
             <div class="lighterBackground">
                 <p class="sideBarTitle">Sobre mí</p>
                 <span class="sideBarText">
-                    <?=\SowerPHP\core\Configure::read('page.aboutme')?>
+                    <?=\sowerphp\core\Configure::read('page.aboutme')?>
                 </span>
             </div>
             <div>
@@ -106,7 +106,7 @@ foreach($links as $link => &$name) {
         <div id="banners">
             <div class="center">
 <?php
-$banners = \SowerPHP\core\Configure::read('banners.right');
+$banners = \sowerphp\core\Configure::read('banners.right');
 foreach ($banners as $link => &$image) {
     if($image[0]=='/') $image = $_base.$image;
     echo '<br /><a href="',$link,'"><img src="',$image,'" alt="" /></a><br />',"\n";
@@ -114,7 +114,7 @@ foreach ($banners as $link => &$image) {
 ?>
             </div>
 <?php
-$google_ads = \SowerPHP\core\Configure::read('banners.google.ads');
+$google_ads = \sowerphp\core\Configure::read('banners.google.ads');
 if (!empty($google_ads['client']) && !empty($google_ads['ads']['160x600'])) {
 ?>
             <div class="adsense">
@@ -131,7 +131,7 @@ if (!empty($google_ads['client']) && !empty($google_ads['ads']['160x600'])) {
         <!-- ##### Main Copy ##### -->
         <div id="main-copy">
 <?php
-$message = SowerPHP\core\Model_Datasource_Session::message();
+$message = \sowerphp\core\Model_Datasource_Session::message();
 if($message) echo '<div class="session_message">',$message,'</div>';
 echo $_content;
 ?>

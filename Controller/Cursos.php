@@ -21,7 +21,7 @@
  * En caso contrario, consulte <http://www.gnu.org/licenses/gpl.html>.
  */
 
-namespace SowerPHP\aulavirtual;
+namespace sowerphp\aulavirtual;
 
 /**
  * Controlador para las páginas de cursos
@@ -38,7 +38,7 @@ class Controller_Cursos extends \Controller_App
      */
     public function index ()
     {
-        $this->set('cursos', \SowerPHP\core\Configure::read(
+        $this->set('cursos', \sowerphp\core\Configure::read(
             'nav.website./cursos.nav'
         ));
     }
@@ -61,9 +61,9 @@ class Controller_Cursos extends \Controller_App
     public function mostrar ($curso, $subpage = '')
     {
         // si el curso no existe mostrar error
-        $cursos = \SowerPHP\core\Configure::read('nav.website./cursos.nav');
+        $cursos = \sowerphp\core\Configure::read('nav.website./cursos.nav');
         if (!array_key_exists('/'.$curso, $cursos)) {
-            \SowerPHP\core\Model_Datasource_Session::message(
+            \sowerphp\core\Model_Datasource_Session::message(
                 'El curso <em>'.$curso.'</em> solicitado no existe'
             );
             $this->redirect('/inicio');
@@ -112,7 +112,7 @@ class Controller_Cursos extends \Controller_App
     private function planilla ($curso, $planilla)
     {
         $p = DIR_PROJECT.'/data/cursos/'.$curso.'/'.$planilla.'.';
-        foreach (\SowerPHP\general\Utility_Spreadsheet::$exts as $ext) {
+        foreach (\sowerphp\general\Utility_Spreadsheet::$exts as $ext) {
             if (file_exists($p.$ext)) {
                 $this->set(array(
                     'titulo' => ucfirst(str_replace('-', ' ', $planilla)),
