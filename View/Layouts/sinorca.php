@@ -9,6 +9,7 @@
         <link rel="stylesheet alternative" type="text/css" href="<?=$_base?>/layouts/sinorca/css/screen-alt.css" media="screen" title="Sinorca (alternative)" />
         <link rel="stylesheet" type="text/css" href="<?=$_base?>/layouts/sinorca/css/print.css" media="print" />
         <script type="text/javascript" src="<?=$_base?>/js/jquery.js"></script>
+        <script type="text/javascript" src="<?=$_base?>/js/__.js"></script>
         <script type="text/javascript" src="<?=$_base?>/js/form.js"></script>
         <link href="<?=$_base?>/js/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
         <script type="text/javascript" src="<?=$_base?>/js/jquery-ui/jquery-ui.js"></script>
