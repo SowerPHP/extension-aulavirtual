@@ -24,18 +24,37 @@
 /**
  * @file @core.php
  * Configuración de la extensión aulavirtual
- * @version 2014-03-25
+ * @version 2014-04-10
  */
 
 // Tema de la página (diseño)
 \sowerphp\core\Configure::write('page.layout', 'sinorca');
 
+// Textos de la página
+\SowerPHP\core\Configure::write('page.header.title', 'Cursos NOMBRE');
+\SowerPHP\core\Configure::write('page.body.title', 'Cursos NOMBRE');
+
 // about me
-\sowerphp\core\Configure::write('page.aboutme', '');
+\sowerphp\core\Configure::write('page.aboutme', 'Soy...');
+
+// Menú principal del sitio web
+\SowerPHP\core\Configure::write('nav.website', array(
+    '/inicio'=>'Inicio',
+    '/cursos'=>array('name'=>'Cursos', 'title'=>'', 'nav'=>array(
+        '/curso1'=>array('name'=>'Curso 1', 'title'=>'', 'nav'=>array(
+        )),
+        '/curso2'=>array('name'=>'Curso 2', 'title'=>'', 'nav'=>array(
+        )),
+    )),
+//    '/horario'=>'Horario',
+    '/documentos'=>'Documentos',
+    '/contacto'=>'Contacto',
+));
 
 // Enlaces útiles (parte superior)
 \sowerphp\core\Configure::write('page.header.useful_links', array(
     'left' => array(
+//        'http://es.wikipedia.org' => 'Wikipedia'
     ),
     'right' => array(
     ),
