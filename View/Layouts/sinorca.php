@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="<?=$_base?>/js/jquery-ui/css/smoothness/jquery-ui.css" media="screen"/>
         <script type="text/javascript" src="<?=$_base?>/js/google-code-prettify/prettify.js"></script>
         <script type="text/javascript"> $(function() { prettyPrint(); }); </script>
+<?=$_header_extra?>
     </head>
     <body>
         <!-- For non-visual user agents: -->
