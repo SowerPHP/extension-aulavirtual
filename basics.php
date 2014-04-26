@@ -24,18 +24,19 @@
 /**
  * @file basics.php
  * Funciones de la extensión aulavirtual
- * @version 2014-03-25
+ * @version 2014-04-26
  */
 
 /**
- * Función para crear los enaces para la sección "enlaces útiles" en el layout
+ * Función para crear los enlaces para la sección "enlaces útiles" en el layout
  * de la página
  * @param linksName Links que se están renderizando
  * @return Retorna un string con los enlaces
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]delaf.cl)
  * @version 2014-03-25
  */
-function header_useful_links ($linksName) {
+function header_useful_links ($linksName)
+{
     $useful_links = SowerPHP\core\Configure::read($linksName);
     if (is_array($useful_links) && count($useful_links)) {
         $links = array();
@@ -45,4 +46,34 @@ function header_useful_links ($linksName) {
         return implode(' | ', $links)."\n";
     }
     return "\n";
+}
+
+/**
+ * Función para crear los enlaces para los cursos y sus submenús
+ * @param link Enlace del curso (identificador)
+ * @param name Arreglo con los datos del curso
+ * @param curso Curso actual que se ve
+ * @param nav Submenú del curso
+ * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]delaf.cl)
+ * @version 2014-04-26
+ */
+function nav_cursos ($link, $name, $curso, $nav = array())
+{
+    $l = _BASE.'/cursos'.$link;
+    echo '<li>',"\n";
+    if ($link == $curso) {
+        echo '<a href="',$l,'" title="',$name['title'],'" style="padding:0"><span class="thisPage">&raquo; ',$name['name'],'</span></a>',"\n";
+        if(!empty($nav)) {
+            echo '<ul>',"\n";
+            foreach ($nav as $link => &$name) {
+                $l = _BASE.'/cursos'.$curso.$link;
+                if(strpos(_REQUEST, '/cursos'.$curso.$link)===0) echo '<li><a href="',$l,'" style="padding:0"><span class="thisSubPage">&raquo; ',$name,'</span></a></li>',"\n";
+                else echo '<li><a href="',$l,'">&rsaquo; ',$name,'</a></li>',"\n";
+            }
+            echo '</ul>',"\n";
+        }
+    } else {
+        echo '<a href="',$l,'" title="',$name['title'],'">&rsaquo; ',$name['name'],'</a>',"\n";
+    }
+    echo '</li>',"\n";
 }

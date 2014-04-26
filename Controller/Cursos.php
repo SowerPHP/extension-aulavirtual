@@ -26,7 +26,7 @@ namespace sowerphp\aulavirtual;
 /**
  * Controlador para las páginas de cursos
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]delaf.cl)
- * @version 2014-03-26
+ * @version 2014-04-26
  */
 class Controller_Cursos extends \Controller_App
 {
@@ -41,6 +41,27 @@ class Controller_Cursos extends \Controller_App
         $this->set('cursos', \sowerphp\core\Configure::read(
             'nav.website./cursos.nav'
         ));
+    }
+
+    /**
+     * Método que recupera los datos de un curso
+     * @param curso Curso que se buscan sus datos
+     * @return Arreglo con los datos del curso o null si no se encontró
+     * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]delaf.cl)
+     * @version 2014-02-26
+     */
+    private function getCursoData ($curso)
+    {
+        $cursos = \sowerphp\core\Configure::read('nav.website./cursos.nav');
+        if (isset($cursos['/'.$curso]))
+            return $cursos['/'.$curso];
+        foreach ($cursos as $link => &$info) {
+            if (!is_numeric($link))
+                continue;
+            if (isset($info['nav']['/'.$curso]))
+                return $info['nav']['/'.$curso];
+        }
+        return null;
     }
 
     /**
@@ -61,15 +82,15 @@ class Controller_Cursos extends \Controller_App
     public function mostrar ($curso, $subpage = '')
     {
         // si el curso no existe mostrar error
-        $cursos = \sowerphp\core\Configure::read('nav.website./cursos.nav');
-        if (!array_key_exists('/'.$curso, $cursos)) {
+        $data = $this->getCursoData($curso);
+        if (!$data) {
             \sowerphp\core\Model_Datasource_Session::message(
                 'El curso <em>'.$curso.'</em> solicitado no existe'
             );
             $this->redirect('/inicio');
         }
         // setear variables para el curso
-        $this->set('curso', $cursos['/'.$curso]['name']);
+        $this->set('curso', $data['name']);
         // determinar subpaginas que se solicitan
         $subpages = func_get_args();
         array_shift($subpages);

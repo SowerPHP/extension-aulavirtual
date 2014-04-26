@@ -53,7 +53,6 @@ echo implode(' | ', $links);
         <!-- ##### Side Bar ##### -->
         <div id="side-bar">
             <div>
-                <p class="sideBarTitle">Cursos</p>
                 <ul>
 <?php
 // determinar curso si es que se está viendo uno
@@ -64,32 +63,24 @@ if(substr($_request, 0, 8)=='/cursos/') {
 } else $curso = null;
 // mostrar cursos
 foreach($_nav_website['/cursos']['nav'] as $link => &$name) {
-    $l = $_base.'/cursos'.$link;
-    if($link==$curso) echo '                    <li><a href="',$l,'" title="',$name['title'],'" style="padding:0"><span class="thisPage">&raquo; ',$name['name'],'</span></a></li>',"\n";
-    else echo '                    <li><a href="',$l,'" title="',$name['title'],'">&rsaquo; ',$name['name'],'</a></li>',"\n";
+    if (is_numeric($link)) {
+        echo '<p class="sideBarTitle">'.$name['name'].'</p>';
+        foreach ($name['nav'] as $l => &$c) {
+            if(!empty($name['nav'][$curso]['nav']))
+                nav_cursos($l, $c, $curso, $name['nav'][$curso]['nav']);
+            else
+                nav_cursos($l, $c, $curso);
+        }
+    } else {
+        if(!empty($_nav_website['/cursos']['nav'][$curso]['nav']))
+            nav_cursos($link, $name, $curso, $_nav_website['/cursos']['nav'][$curso]['nav']);
+        else
+            nav_cursos($link, $name, $curso);
+    }
 }
 ?>
                 </ul>
             </div>
-<?php if(substr($_request, 0, 8)=='/cursos/') { ?>
-            <div>
-                <p class="sideBarTitle"><?=$_nav_website['/cursos']['nav'][$curso]['name']?></p>
-                <ul>
-<?php
-// mostrar menú del curso
-$links = $_nav_website['/cursos']['nav'][$curso]['nav'];
-if(!array_key_exists('', $links)) {
-    $links = array_merge(array(''=>'Archivos'), $links);
-}
-foreach($links as $link => &$name) {
-    $l = $_base.'/cursos'.$curso.$link;
-    if($_request=='/cursos'.$curso.$link) echo '                    <li><a href="',$l,'" style="padding:0"><span class="thisPage">&raquo; ',$name,'</span></a></li>',"\n";
-    else echo '                    <li><a href="',$l,'">&rsaquo; ',$name,'</a></li>',"\n";
-}
-?>
-                </ul>
-            </div>
-<?php } ?>
             <div class="lighterBackground">
                 <p class="sideBarTitle">Sobre mí</p>
                 <span class="sideBarText">
@@ -107,11 +98,14 @@ foreach($links as $link => &$name) {
         <!-- ##### Banners ##### -->
         <div id="banners">
             <div class="center">
+<?php if (file_exists(DIR_WEBSITE.'/webroot/img/foto.jpg')) { ?>
+                <img src="<?=$_base?>/img/foto.jpg" alt="" />
 <?php
+}
 $banners = \sowerphp\core\Configure::read('banners.right');
 foreach ($banners as $link => &$image) {
     if($image[0]=='/') $image = $_base.$image;
-    echo '<br /><a href="',$link,'"><img src="',$image,'" alt="" /></a><br />',"\n";
+    echo '<a href="',$link,'"><img src="',$image,'" alt="" /></a>',"\n";
 }
 ?>
             </div>
