@@ -13,6 +13,7 @@ foreach($cursos as $link => &$name) {
     } else {
         echo '<a href="',$_base,'/cursos',$link,'">',$name['name'],'</a>',"\n";
     }
+    echo '</li>',"\n";
 }
 ?>
 </ul>

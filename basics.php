@@ -55,25 +55,21 @@ function header_useful_links ($linksName)
  * @param curso Curso actual que se ve
  * @param nav Submenú del curso
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]delaf.cl)
- * @version 2014-04-26
+ * @version 2014-04-28
  */
 function nav_cursos ($link, $name, $curso, $nav = array())
 {
     $l = _BASE.'/cursos'.$link;
-    echo '<li>',"\n";
     if ($link == $curso) {
         echo '<a href="',$l,'" title="',$name['title'],'" style="padding:0"><span class="thisPage">&raquo; ',$name['name'],'</span></a>',"\n";
         if(!empty($nav)) {
-            echo '<ul>',"\n";
             foreach ($nav as $link => &$name) {
                 $l = _BASE.'/cursos'.$curso.$link;
-                if(strpos(_REQUEST, '/cursos'.$curso.$link)===0) echo '<li><a href="',$l,'" style="padding:0"><span class="thisSubPage">&raquo; ',$name,'</span></a></li>',"\n";
-                else echo '<li><a href="',$l,'">&rsaquo; ',$name,'</a></li>',"\n";
+                if(strpos(_REQUEST, '/cursos'.$curso.$link)===0) echo '<a href="',$l,'" style="padding:0"><span class="subPage thisSubPage">&raquo; ',$name,'</span></a>',"\n";
+                else echo '<a href="',$l,'" class="subPage">&rsaquo; ',$name,'</a>',"\n";
             }
-            echo '</ul>',"\n";
         }
     } else {
         echo '<a href="',$l,'" title="',$name['title'],'">&rsaquo; ',$name['name'],'</a>',"\n";
     }
-    echo '</li>',"\n";
 }

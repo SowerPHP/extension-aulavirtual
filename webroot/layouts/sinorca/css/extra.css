@@ -17,12 +17,12 @@ pre {
 	overflow: auto;
 }
 
-#side-bar li li {
- 	padding-left: 1em;
+#side-bar .subPage {
+ 	padding-left: 7mm;
 }
 
 #side-bar .thisSubPage {
-	padding: 0.75em 1ex 0.75em 5mm;
+	padding: 0.75em 1ex 0.75em 7mm;
 	display: block;
 	font-weight: bold;
 }

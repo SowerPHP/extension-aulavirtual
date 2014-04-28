@@ -53,7 +53,6 @@ echo implode(' | ', $links);
         <!-- ##### Side Bar ##### -->
         <div id="side-bar">
             <div>
-                <ul>
 <?php
 // determinar curso si es que se está viendo uno
 if(substr($_request, 0, 8)=='/cursos/') {
@@ -64,7 +63,7 @@ if(substr($_request, 0, 8)=='/cursos/') {
 // mostrar cursos
 foreach($_nav_website['/cursos']['nav'] as $link => &$name) {
     if (is_numeric($link)) {
-        echo '<p class="sideBarTitle">'.$name['name'].'</p>';
+        echo '<p class="sideBarTitle">'.$name['name'].'</p>',"\n";
         foreach ($name['nav'] as $l => &$c) {
             if(!empty($name['nav'][$curso]['nav']))
                 nav_cursos($l, $c, $curso, $name['nav'][$curso]['nav']);
@@ -79,7 +78,6 @@ foreach($_nav_website['/cursos']['nav'] as $link => &$name) {
     }
 }
 ?>
-                </ul>
             </div>
             <div class="lighterBackground">
                 <p class="sideBarTitle">Sobre mí</p>
