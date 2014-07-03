@@ -68,7 +68,7 @@ pre {
 	margin-right: 170px;
 }
 
-#main-copy p, #main-copy li {
+#main-copy p, #main-copy li, #main-copy a {
 	font-size: 11pt;
 	margin-bottom: 1em;
 }
@@ -141,4 +141,24 @@ table span { display: block; font-style: italic; font-size: 0.85em; }
 	margin-top: 1em;
 	border: 1px dashed #333;
 	background: #eee;
+}
+
+/* bibliografía */
+#bibliografia > div {
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	width: 180px;
+	height: 260px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+	border: solid 1px #ccc;
+	-moz-box-shadow: 1px 1px 5px #999;
+	-webkit-box-shadow: 1px 1px 5px #999;
+	box-shadow: 1px 1px 5px #999;
+}
+
+#bibliografia > div > img {
+	border: solid 2px #ccc;
 }
