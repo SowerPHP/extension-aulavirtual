@@ -76,10 +76,11 @@ class Controller_Cursos extends \Controller_App
      *   con enlaces para descargas los archivos.
      * @param curso Directorio del curso disponible en archivos/cursos
      * @param subpage Página del curso que se quiere cargar
+     * @param arg1 Primer argumento que se puede pasar a la subpágina
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]delaf.cl)
-     * @version 2014-02-26
+     * @version 2014-07-23
      */
-    public function mostrar ($curso, $subpage = '')
+    public function mostrar ($curso, $subpage = '', $arg1 = null)
     {
         // si el curso no existe mostrar error
         $data = $this->getCursoData($curso);
@@ -112,12 +113,18 @@ class Controller_Cursos extends \Controller_App
             $this->planilla($curso, 'notas');
             return;
         }
+        // si se pidió alguna planilla
+        else if ($subpage=='planilla') {
+            $this->planilla($curso, $arg1);
+            return;
+        }
         // si se pidió ver la página de código
         else if ($subpage=='codigo') {
             $this->codigo($curso);
             return;
         }
-        // supongamos que se quiere mostrar el contenido de un directorio
+        // si no es nada de lo anterior se asume que se quiere mostrar el
+        // contenido de un directorio
         $flag = $this->directorio($curso, $subpage);
         // no se encontró posible acción para la página -> página no existe
         if(!$flag) $this->render('Cursos/error404');
