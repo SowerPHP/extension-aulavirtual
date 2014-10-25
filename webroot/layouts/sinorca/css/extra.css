@@ -79,7 +79,7 @@ pre {
 	font-style: italic;
 }
 
-.urgente {
+div.importante {
 	border: 2px dashed black;
 	padding: 1em;
 	font-size: 1.5em;

@@ -1,3 +1,3 @@
 <h1>Código</h1>
 <?php
-codeFrom($directorio, true);
+\sowerphp\general\View_Helper_HTML::codeFrom($directorio, true);
