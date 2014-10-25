@@ -1,2 +1,2 @@
 <h1>Documentos</h1>
-<?php linksFrom('/archivos/documentos', true);
+<?php \sowerphp\general\View_Helper_HTML::linksFrom('/archivos/documentos', true);
