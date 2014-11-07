@@ -126,7 +126,7 @@ if (!empty($google_ads['client']) && !empty($google_ads['ads']['160x600'])) {
         <div id="main-copy">
 <?php
 $message = \sowerphp\core\Model_Datasource_Session::message();
-if($message) echo '<div class="session_message">',$message,'</div>';
+if($message) echo '<div class="session_message session_message_',$message['type'],'">',$message['text'],'</div>';
 echo $_content;
 ?>
             <!--<a class="topOfPage" href="#top" title="Go to the top of this page">Ir hasta arriba</a></div>-->
