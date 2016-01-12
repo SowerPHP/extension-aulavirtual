@@ -18,6 +18,6 @@
         "source": "https://github.com/sowerphp/extension-aulavirtual"
     },
     "require": {
-        "php": "~5.5"
+        "php": ">=5.5"
     }
 }
