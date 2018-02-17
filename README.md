@@ -1,5 +1,5 @@
-Extensión aulavirtual
-=====================
+SowerPHP: extensión aulavirtual
+===============================
 
 Esta extensión provee funcionalidades para crear un "Aula Virtual" muy básica,
 sin el uso de bases de datos. Permite el despliegue de cursos y archivos dentro
