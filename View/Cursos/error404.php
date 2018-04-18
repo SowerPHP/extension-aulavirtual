@@ -1,4 +1,4 @@
-<h1><?=$curso?></h1>
+<div class="page-header"><h1><?=$curso?></h1></div>
 <div style="float:left">
     <img src="<?=$_base?>/img/error404.png" alt="error404" />
 </div>

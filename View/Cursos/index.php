@@ -1,4 +1,4 @@
-<h1>Cursos</h1>
+<div class="page-header"><h1>Cursos</h1></div>
 <ul>
 <?php
 foreach($cursos as $link => &$name) {

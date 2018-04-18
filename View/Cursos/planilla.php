@@ -1,3 +1,3 @@
+<div class="page-header"><h1><?=$titulo?></h1></div>
 <?php
-echo '<h1>',$titulo,'</h1>';
 echo \sowerphp\general\Utility_Spreadsheet::file2html($archivo);

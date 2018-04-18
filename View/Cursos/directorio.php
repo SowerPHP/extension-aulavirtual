@@ -1,3 +1,3 @@
+<div class="page-header"><h1><?=$titulo?></h1></div>
 <?php
-echo '<h1>',$titulo,'</h1>';
 \sowerphp\general\View_Helper_HTML::linksFrom($directorio, true);
